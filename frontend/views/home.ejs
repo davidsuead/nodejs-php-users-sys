@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="<%= baseURL %>/css/index/home.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    </head>
+    
+    <body>        
+        
+        <main id="main-content" class="container-fluid">
+            <div class="py-5 text-center">
+                <img class="mb-4" src="<%= baseURL %>/img/soluti-logo.jpg" alt="" width="187" height="52">
+                <h2>Lista de Usuários</h2>
+            </div>
+
+            <div class="btn-toolbar btn-group-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2 btn-group-toolbar-item" role="group" aria-label="First group">
+                    <div id="btn-edit" class="text-center btn-group-block">
+                        <a href="/users/edit" class="btn btn-block btn-primary"><i class="fas fa-user-edit"></i> Editar Dados</a>
+                    </div>
+                </div>
+                <div class="btn-group mr-2 btn-group-toolbar-item" role="group" aria-label="Second group">
+                    <div class="btn-group" role="group" aria-label="Buttons group">
+                        <div class="text-center btn-group-block">
+                            <a href="/users/biometria" class="btn btn-block btn-dark"><i class="fas fa-fingerprint"></i> Biometria</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="btn-logout" class="btn-group mr-2 btn-group-toolbar-item" role="group" aria-label="Second group">
+                    <div class="btn-group" role="group" aria-label="Buttons group">
+                        <div class="text-center">
+                            <a href="/logout" class="btn btn-block btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+            <div id="error-feedback" class="alert alert-danger" role="alert">
+            </div>
+            <div id="success-feedback" class="alert alert-success" role="alert">
+            </div>
+
+            <div class="table-responsive" style="width: 100%">
+                <table class="table" id="example" class="display" style="width: 100%">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var count = 1; %>
+                        <% usuarios.forEach(function(user){ %>
+                            <tr>
+                                <th scope="row"><%= count %></th>
+                                <td><%= user.nomeUsuario %></td>
+                                <td><%= user.numrCpf %></td>
+                                <td><%= user.emailUsuario %></td>
+                                <td><%= user.enderecoCidade %></td>
+                            </tr>
+                            <% count = count + 1; %>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('partials/footer') %>
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+            <script src="<%= baseURL %>/js/index/home.js"></script>
+        </footer>
+    </body>
+</html>

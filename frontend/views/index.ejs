@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <%- include('partials/head') %>
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="<%= baseURL %>/css/index/signin.css">
+    </head>
+    
+    <body>        
+        <header>
+            <%- include('partials/header') %> 
+        </header>        
+        
+        <main class="container">
+            <form class="form-signin" id="form-signin" method="POST" action="javascript:;" url="<%= baseURL %>/signin">
+                <div class="text-center mb-4">
+                    <img class="mb-4" src="<%= baseURL %>/img/soluti-logo.jpg" alt="" width="187" height="52">
+                    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                </div>
+              
+                <div class="form-label-group emailUsuario">
+                    <input type="email" id="emailUsuario" name="emailUsuario" class="form-control" placeholder="E-mail" required autofocus>
+                    <label for="emailUsuario">E-mail</label>
+                </div>
+              
+                <div class="form-label-group senhaUsuario">
+                    <input type="password" id="senhaUsuario" name="senhaUsuario" class="form-control" placeholder="Password" required>
+                    <label for="senhaUsuario">Password</label>
+                </div>
+              
+                <div class="checkbox mb-3">
+                    <label>
+                    <a href="users/signup">Cadastrar-se</a>
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btnLogin" type="submit" onclick="submitForm('form-signin', 'btnLogin');">Login</button>
+                <br><br>
+                <div id="error-feedback" class="alert alert-danger" role="alert">
+                </div>
+
+                <div id="success-feedback" class="alert alert-success" role="alert">
+                </div>
+            </form>
+        </main>
+        
+        <footer>
+            <%- include('partials/footer') %> 
+        </footer>
+    </body>
+</html>

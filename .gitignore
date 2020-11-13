@@ -1,0 +1,16 @@
+/backend/public/upload
+/backend/public/auth.php
+/backend/var/cache
+/backend/var/log
+/backend/vendor
+/backend/database.json
+/backend/biometrias
+/backend/.env
+/backend/.env_des
+/backend/.env_test
+/backend/.env_hom
+/backend/config/doctrine.php
+/frontend/node_modules
+/frontend/.env
+/frontend/uploads
+/sql

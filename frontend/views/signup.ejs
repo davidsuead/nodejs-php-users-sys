@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="<%= baseURL %>/css/users/signup.css">
+    </head>
+    
+    <body>
+        <header>
+            <%- include('partials/header') %> 
+        </header>        
+        
+        <main class="container">
+            <form class="form-signup" id="form-signup" method="POST" action="javascript:;" url="<%= baseURL %>/users/create">
+                <div class="py-5 text-center">
+                    <img class="mb-4" src="<%= baseURL %>/img/soluti-logo.jpg" alt="" width="187" height="52">
+                    <h2>Novo Usuário</h2>
+                    <p class="lead"><span style="color:red">*</span> Campos de preenchimento obrigatório</p>
+                </div>
+
+                <div id="error-feedback" class="alert alert-danger" role="alert">
+                </div>
+
+                <div id="success-feedback" class="alert alert-success" role="alert">
+                </div>
+                
+                <div class="card usuario-dados-pessoais">
+                    <div class="card-header">
+                        <h4 class="mb-3">Dados Pessoais</h4>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group required">
+                            <label class="control-label" for="nomeUsuario">Nome</label>
+                            <input type="text" class="form-control" name="nomeUsuario" id="nomeUsuario" placeholder="Nome" maxlength="100" required>
+                            <div class="invalid-feedback-nomeUsuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label" for="numrCpf">CPF</label>
+                            <input type="text" class="form-control" name="numrCpf" id="numrCpf" placeholder="Número de CPF" maxlength="14" required>
+                            <div class="invalid-feedback-numrCpf">
+                            </div>
+                        </div>
+
+                        <div class="form-group required" required>
+                            <label class="control-label" for="emailUsuario">E-mail</label>
+                            <input type="text" class="form-control" name="emailUsuario" id="emailUsuario" placeholder="E-mail" maxlength="200" required>
+                            <div class="invalid-feedback-emailUsuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="dataNascimento">Data de Nascimento</label>
+                            <input type="text" class="form-control" name="dataNascimento" id="dataNascimento" placeholder="Data de nascimento. Formato 18/04/1984" maxlength="10">
+                            <div class="invalid-feedback-dataNascimento">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card usuario-senha">
+                    <div class="card-header">
+                        <h4 class="mb-3">Senha</h4>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="form-group required">
+                            <label class="control-label" for="senhaUsuario">Senha</label>
+                            <input type="password" class="form-control" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" maxlength="20" required>
+                            <div class="invalid-feedback-senhaUsuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label" for="senhaUsuarioConfirmar">Confirmar senha</label>
+                            <input type="password" class="form-control" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" placeholder="Confirmar a senha" maxlength="20" required>
+                            <div class="invalid-feedback-senhaUsuarioConfirmar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usuario-endereco" class="card">
+                    <div id="card-header-endereco" class="card-header card-header-shadow">
+                        <h4 class="mb-3 float-left">Endereço (Opcional)</h4>
+                        <i id="anchor-icon-endereco" class="fas fa-angle-double-left fa-2x float-right"></i>
+                    </div>
+                    
+                    <div id="card-body-endereco" class="card-body">
+                        <div class="form-group enderecoRua">
+                            <label class="control-label" for="enderecoRua">Rua/Logradouro</label>
+                            <input type="text" class="form-control" name="enderecoRua" id="enderecoRua" placeholder="Rua/Logradouro" maxlength="100">
+                            <div class="invalid-feedback-enderecoRua">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoNumero">
+                            <label class="control-label" for="enderecoNumero">Número</label>
+                            <input type="text" class="form-control" name="enderecoNumero" id="enderecoNumero" placeholder="Número" maxlength="5">
+                            <div class="invalid-feedback-enderecoNumero">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoComplemento">
+                            <label class="control-label" for="enderecoComplemento">Complemento</label>
+                            <input type="text" class="form-control" name="enderecoComplemento" id="enderecoComplemento" placeholder="Complemento" maxlength="255">
+                            <div class="invalid-feedback-enderecoComplemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoBairro">
+                            <label class="control-label" for="enderecoBairro">Bairro</label>
+                            <input type="text" class="form-control" name="enderecoBairro" id="enderecoBairro" placeholder="Bairro/Setor" maxlength="100">
+                            <div class="invalid-feedback-enderecoBairro">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoCidade">
+                            <label class="control-label" for="enderecoCidade">Cidade</label>
+                            <input type="text" class="form-control" name="enderecoCidade" id="enderecoCidade" placeholder="Cidade" maxlength="100">
+                            <div class="invalid-feedback-enderecoCidade">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoUf">
+                            <label class="control-label" for="enderecoUf">UF</label>
+                            <input type="text" class="form-control" name="enderecoUf" id="enderecoUf" placeholder="UF/Estado - Sigla" maxlength="2">
+                            <div class="invalid-feedback-enderecoUf">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usuario-telefone" class="card">
+                    <div id="card-header-telefone" class="card-header card-header-shadow">
+                        <h4 class="mb-3 float-left">Telefones (Opcional)</h4>
+                        <i id="anchor-icon-telefone" class="fas fa-angle-double-left fa-2x float-right"></i>
+                    </div>
+                    
+                    <div id="card-body-telefone" class="card-body">
+                        <div class="form-group telefonePrincipal">
+                            <label class="control-label" for="telefonePrincipal">Telefone Principal</label>
+                            <input type="text" class="form-control" name="telefonePrincipal" id="telefonePrincipal" placeholder="Telefone" maxlength="20">
+                            <div class="invalid-feedback-telefonePrincipal">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="telefoneOutro">Outro Telefone</label>
+                            <input type="text" class="form-control" name="telefoneOutro" id="telefoneOutro" placeholder="Telefone" maxlength="20">
+                            <div class="invalid-feedback-telefoneOutro">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6 float-left">
+                        <a href="../" class="btn btn-lg btn-block btn-secondary"><i class="fas fa-arrow-circle-left"></i> Voltar</a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6 float-right">
+                        <input type="submit" value="Cadastrar" onclick="submitForm('form-signup', 'btnSalvar');" class="btn btn-lg btn-block btn-success btnSalvar">
+                    </div>
+                </div>
+            </form>
+        </main>
+        
+        <footer>
+            <%- include('partials/footer') %>
+            <script src="<%= baseURL %>/js/users/signup.js"></script>
+        </footer>
+    </body>
+</html>

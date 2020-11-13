@@ -1,0 +1,21 @@
+{% extends 'app/layout.twig' %}
+{% block title %}{{NOME_SISTEMA}}{% endblock %}
+{% block url %}{{base_url()}}{% endblock %}
+
+{% block body %}
+    <main style="width: 50%; margin: 0 auto; text-align: center">
+        <section id="conteudo" style="text-align: center; margin-top: 20%;">
+            <div class="jumbotron">
+                <h1>APIs Prova Prática</h1>
+                <img src="{{ asset('assets/img/soluti-logo.jpg') }}" style="width: 200px;">
+            </div>
+        </section>
+    </main>        
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var pagina = 'home';
+    </script>
+{% endblock %}

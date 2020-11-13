@@ -1,0 +1,15 @@
+main{
+    margin-bottom: 5em;
+}
+
+.card{
+    margin-bottom: 2em;
+}
+
+.group-btn-add{
+    margin-bottom: 2em;
+}
+
+.card-header {
+    cursor: pointer;
+}

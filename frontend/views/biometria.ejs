@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="<%= baseURL %>/css/users/edit.css">
+    </head>
+    
+    <body>
+        <header>
+            <%- include('partials/header') %> 
+        </header>        
+        
+        <main class="container">
+            <div class="py-5 text-center">
+                <img class="mb-4" src="<%= baseURL %>/img/soluti-logo.jpg" alt="" width="187" height="52">
+                <h2><i class="fas fa-fingerprint"></i> Biometria</h2>
+            </div>
+
+            <div id="error-feedback" class="alert alert-danger" role="alert">
+            </div>
+
+            <div id="success-feedback" class="alert alert-success" role="alert">
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-6">
+                <a href="../home" class="btn btn-lg btn-secondary"><i class="fas fa-arrow-circle-left"></i> Voltar</a>
+            </div>
+            <br><br>
+
+            <div class="card w-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-file-upload"></i> Upload Biometria</h5>
+                    <form class="form-upload-biometria" id="form-upload-biometria" method="POST" action="javascript:;" enctype="multipart/form-data" url="<%= baseURL %>/users/uploadBiometria">
+                        <p><input type="file" id="fileUploaded" name="fileBiometria" required></p>
+                        <button class="btn btn-lg btn-primary btnUpload" type="submit" onclick="submitForm('form-upload-biometria', 'btnUpload');"> Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            
+        </main>
+        
+        <footer>
+            <%- include('partials/footer') %>
+        </footer>
+    </body>
+</html>

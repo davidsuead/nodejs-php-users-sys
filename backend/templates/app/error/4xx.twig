@@ -1,0 +1,25 @@
+{% extends '/app/layout.twig' %}
+
+{% block title %}{{ parent() }} - Página não encontrada{% endblock %}
+
+{% block body %}
+    
+    <div id="wrapper">
+        <div id="main" role="main">
+            <div id="migalhas-de-pao" class="no-mobile">
+            </div>
+
+            <section id="conteudo">
+                <div class="tile markdown">
+                    <div style="text-align: center;">
+                        <br>
+                        <div class="error-code" style="font-size: 135px;">4<i class="fa fa-ban"></i>0</div>
+                        <div class="error-content">
+                            <div class="error-message">Requisição inválida!</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>    
+{% endblock %}

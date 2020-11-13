@@ -1,0 +1,27 @@
+{% extends '/app/layout.twig' %}
+
+{% block title %}{{ parent() }} - Erro Interno{% endblock %}
+
+{% block body %}
+
+    <div id="wrapper">
+        <div id="main" role="main">
+            <div id="migalhas-de-pao" class="no-mobile">
+            </div>
+
+            <section id="conteudo">
+                <div class="tile markdown">
+                    <div style="text-align: center;">
+                        <br>
+                        <div class="error-code" style="font-size: 135px; width: 100%"><i class="fa fa-frown-o"></i> Ops!</div>
+                        <br><br>
+                        <div style="clear: both;"></div>
+                        <div class="error-content">
+                            <div class="error-message">Ocorreu um erro interno!</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>    
+{% endblock %}

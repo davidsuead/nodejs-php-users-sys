@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="<%= baseURL %>/css/users/edit.css">
+    </head>
+    
+    <body>
+        <header>
+            <%- include('partials/header') %> 
+        </header>        
+        
+        <main class="container">
+            <form class="form-save" id="form-save" method="POST" action="javascript:;" url="<%= baseURL %>/users/save">
+                <div class="py-5 text-center">
+                    <img class="mb-4" src="<%= baseURL %>/img/soluti-logo.jpg" alt="" width="187" height="52">
+                    <h2>Editar Dados</h2>
+                    <p class="lead"><span style="color:red">*</span> Campos de preenchimento obrigatório</p>
+                </div>
+
+                <div id="get-error"><%= errorMsg %></div>
+
+                <div id="error-feedback" class="alert alert-danger" role="alert">
+                </div>
+
+                <div id="success-feedback" class="alert alert-success" role="alert">
+                </div>
+                
+                <div class="card usuario-dados-pessoais">
+                    <div class="card-header">
+                        <h4 class="mb-3">Dados Pessoais</h4>
+                    </div>
+
+                    <input type="hidden" name="idUsuario" value="<%= usuario.idUsuario %>">
+                    
+                    <div class="card-body">
+                        <div class="form-group required">
+                            <label class="control-label" for="nomeUsuario">Nome</label>
+                            <input type="text" class="form-control" name="nomeUsuario" id="nomeUsuario" placeholder="Nome" value="<%= usuario.nomeUsuario %>" maxlength="100" required>
+                            <div class="invalid-feedback-nomeUsuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label" for="numrCpf">CPF</label>
+                            <input type="text" class="form-control" name="numrCpf" id="numrCpf" placeholder="Número de CPF" value="<%= usuario.numrCpf %>" maxlength="14" required>
+                            <div class="invalid-feedback-numrCpf">
+                            </div>
+                        </div>
+
+                        <div class="form-group required" required>
+                            <label class="control-label" for="emailUsuario">E-mail</label>
+                            <input type="text" class="form-control" name="emailUsuario" id="emailUsuario" placeholder="E-mail" value="<%= usuario.emailUsuario %>" maxlength="200" required>
+                            <div class="invalid-feedback-emailUsuario">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="dataNascimento">Data de Nascimento</label>
+                            <input type="text" class="form-control" name="dataNascimento" id="dataNascimento" value="<%= usuario.dataNascimento %>" placeholder="Data de nascimento. Formato 18/04/1984" maxlength="10">
+                            <div class="invalid-feedback-dataNascimento">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usuario-endereco" class="card">
+                    <div id="card-header-endereco" class="card-header card-header-shadow">
+                        <h4 class="mb-3 float-left">Endereço</h4>
+                    </div>
+                    
+                    <div id="card-body-endereco" class="card-body">
+                        <div class="form-group enderecoRua">
+                            <label class="control-label" for="enderecoRua">Rua/Logradouro</label>
+                            <input type="text" class="form-control" name="enderecoRua" id="enderecoRua" value="<%= usuario.enderecoRua %>" placeholder="Rua/Logradouro" maxlength="100">
+                            <div class="invalid-feedback-enderecoRua">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoNumero">
+                            <label class="control-label" for="enderecoNumero">Número</label>
+                            <input type="text" class="form-control" name="enderecoNumero" id="enderecoNumero" value="<%= usuario.enderecoNumero %>" placeholder="Número" maxlength="5">
+                            <div class="invalid-feedback-enderecoNumero">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoComplemento">
+                            <label class="control-label" for="enderecoComplemento">Complemento</label>
+                            <input type="text" class="form-control" name="enderecoComplemento" id="enderecoComplemento" value="<%= usuario.enderecoComplemento %>" placeholder="Complemento" maxlength="255">
+                            <div class="invalid-feedback-enderecoComplemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoBairro">
+                            <label class="control-label" for="enderecoBairro">Bairro</label>
+                            <input type="text" class="form-control" name="enderecoBairro" id="enderecoBairro" value="<%= usuario.enderecoBairro %>" placeholder="Bairro/Setor" maxlength="100">
+                            <div class="invalid-feedback-enderecoBairro">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoCidade">
+                            <label class="control-label" for="enderecoCidade">Cidade</label>
+                            <input type="text" class="form-control" name="enderecoCidade" id="enderecoCidade" value="<%= usuario.enderecoCidade %>" placeholder="Cidade" maxlength="100">
+                            <div class="invalid-feedback-enderecoCidade">
+                            </div>
+                        </div>
+
+                        <div class="form-group enderecoUf">
+                            <label class="control-label" for="enderecoUf">UF</label>
+                            <input type="text" class="form-control" name="enderecoUf" id="enderecoUf" value="<%= usuario.enderecoUf %>" placeholder="UF/Estado - Sigla" maxlength="2">
+                            <div class="invalid-feedback-enderecoUf">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="usuario-telefone" class="card">
+                    <div id="card-header-telefone" class="card-header card-header-shadow">
+                        <h4 class="mb-3 float-left">Telefones</h4>
+                    </div>
+                    
+                    <div id="card-body-telefone" class="card-body">
+                        <div class="form-group telefonePrincipal">
+                            <label class="control-label" for="telefonePrincipal">Telefone Principal</label>
+                            <input type="text" class="form-control" name="telefonePrincipal" id="telefonePrincipal" value="<%= usuario.telefonePrincipal %>" placeholder="Telefone" maxlength="20">
+                            <div class="invalid-feedback-telefonePrincipal">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="telefoneOutro">Outro Telefone</label>
+                            <input type="text" class="form-control" name="telefoneOutro" id="telefoneOutro" value="<%= usuario.telefoneOutro %>" placeholder="Telefone" maxlength="20">
+                            <div class="invalid-feedback-telefoneOutro">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6 float-left">
+                        <a href="../" class="btn btn-lg btn-block btn-secondary"><i class="fas fa-arrow-circle-left"></i> Voltar</a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6 float-right">
+                        <input type="submit" value="Salvar" onclick="submitForm('form-save', 'btnSalvar');" class="btn btn-lg btn-block btn-success btnSalvar">
+                    </div>
+                </div>
+            </form>
+        </main>
+        
+        <footer>
+            <%- include('partials/footer') %>
+        </footer>
+    </body>
+</html>
